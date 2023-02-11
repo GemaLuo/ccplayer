@@ -8,6 +8,9 @@ import Login from "./Login";
 import PrivateRoute from "./PrivateRoute";
 import ForgotPassword from "./ForgotPassword";
 import UpdateProfile from "./UpdateProfile";
+import Home from "../Pages/Home";
+import Search from "../Pages/Search";
+import AlbumSongs from "../Pages/AlbumSongs";
 
 function App(){
   return (
@@ -20,6 +23,24 @@ function App(){
           <AuthProvider>
             <Routes>
               <Route path="/" 
+                element={
+                  <PrivateRoute>
+                    <Home/>
+                  </PrivateRoute>
+                }/>
+              <Route path="/album-songs" 
+                element={
+                  <PrivateRoute>
+                    <AlbumSongs/>
+                  </PrivateRoute>
+                }/>
+              <Route path="/search" 
+                element={
+                  <PrivateRoute>
+                    <Search/>
+                  </PrivateRoute>
+                }/>
+              <Route path="/dashboard" 
                 element={
                   <PrivateRoute>
                     <Dashboard/>
